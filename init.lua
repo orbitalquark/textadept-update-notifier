@@ -22,10 +22,10 @@ M.check_on_startup = false
 
 --- Command to send an HTTP request to check for updates.
 -- The default value uses 'curl' on Windows, macOS, and BSD; it uses 'wget' on Linux.
-M.fetch = not LINUX and 'curl -s' or 'wget -q -O-'
+M.fetch = OS ~= 'linux' and 'curl -s' or 'wget -q -O-'
 
 --- Command used to open a URL in a browser.
-M.browser = WIN32 and 'start ""' or OSX and 'open' or LINUX and 'xdg-open'
+M.browser = OS == 'windows' and 'start ""' or OS == 'macos' and 'open' or 'xdg-open'
 
 local json = require('update_notifier.dkjson')
 
