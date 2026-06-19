@@ -85,7 +85,7 @@ function M.check()
 
 	ui.statusbar_text = _L['No update detected']
 end
-events.connect(events.INITIALIZED, function() if M.check_on_startup then M.check() end end)
+events.connect(events.INITIALIZED, function() if M.check_on_startup and not (arg == nil) then M.check() end end)
 
 -- Add a menu entry.
 _L['Check for Updates'] = '_Check for Updates'
